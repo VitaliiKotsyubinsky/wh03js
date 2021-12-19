@@ -1,12 +1,14 @@
-let userAge = prompt('enter age')
-if (userAge < 0 || userAge <= 12) {
-    alert('child')
-} else if (userAge < 12 && userAge < 18) {
-    alert('student')
-} else if (userAge > 18 && userAge <= 60) {
-    alert('adult')
-} else if (userAge > 60) {
-    alert('old')
-} else {
-    alert('please enter correct number')
+function getAgeGroup(age) {
+    if (age < 12) return 'child'
+    if (age < 18) return 'teenager'
+    if (age < 60) return 'adult'
+    return 'senior'
 }
+function getUserAgeGroup() {
+    let age
+    do {
+        age = +prompt('Input your age', 23)
+    } while (!(age > 0) || !(age < 120))
+    alert(getAgeGroup(age))
+}
+getUserAgeGroup()
